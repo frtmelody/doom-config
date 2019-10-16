@@ -11,6 +11,7 @@
 ;; SSH
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+
 (after! ssh-deploy
   (setq ssh-deploy-automatically-detect-remote-changes 1))
 
@@ -151,20 +152,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; GIT
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(after! git-link
-  (add-to-list 'git-link-remote-alist
-               '("10.193.35.53" git-link-github-http))
-  (add-to-list 'git-link-commit-remote-alist
-               '("10.193.35.53" git-link-commit-github-http))
-  (add-to-list 'git-link-remote-alist
-               '("rnd-github-usa-g\\.huawei\\.com" git-link-github-http))
-  (add-to-list 'git-link-commit-remote-alist
-               '("rnd-github-usa-g\\.huawei\\.com" git-link-commit-github-http))
-
-  ;; OVERRIDE
-  (advice-add #'git-link--select-remote :override #'git-link--read-remote)
-  )
 
 
 (use-package! magit-todos

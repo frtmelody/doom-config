@@ -27,33 +27,6 @@
 ;; disable line-numbers by default
 (setq display-line-numbers-type nil)
 
-;; my custom faces
-;; (custom-set-faces!
-;;  '(variable-pitch :family nil)
-;;  `(show-paren-match :background ,(doom-lighten (doom-color 'teal) 0.4) :foreground ,(doom-color 'base1))
-;;  '(tide-hl-identifier-face :inherit 'lsp-face-highlight-read)
-;;  ;; '(lsp-intellij-face-code-lens-run :background "honeydew")
-;;  `(ivy-posframe-border :background ,(doom-color 'blue))
-;;  `(magit-diff-file-heading :background ,(doom-lighten (doom-color 'blue) 0.5))
-;;  `(magit-diff-file-heading-highlight :background ,(doom-lighten (doom-color 'blue) 0.2))
-;;  '(markdown-header-face-1 :inherit 'org-level-1)
-;;  '(markdown-header-face-2 :inherit 'org-level-2)
-;;  '(markdown-header-face-3 :inherit 'org-level-3)
-;;  `(web-mode-jsx-depth-1-face :background ,(doom-lighten (doom-color 'teal) 0.9))
-;;  `(web-mode-jsx-depth-2-face :background ,(doom-lighten (doom-color 'teal) 0.8))
-;;  `(web-mode-jsx-depth-3-face :background ,(doom-lighten (doom-color 'teal) 0.7))
-;;  `(web-mode-jsx-depth-4-face :background ,(doom-lighten (doom-color 'teal) 0.6))
-;;  `(web-mode-jsx-depth-5-face :background ,(doom-lighten (doom-color 'teal) 0.5))
-;;  `(flyspell-incorrect :underline ,(doom-color 'red))
-;;  `(flyspell-duplicate :underline ,(doom-color 'orange))
-;;  '(flymake-warning :underline nil)
-;;  '(flycheck-warning :underline nil)
-;;  `(ein:cell-input-area :background ,(doom-lighten (doom-color 'red) 0.85))
-;;  `(ein:cell-input-prompt :background ,(doom-color 'red) :foreground ,(doom-color 'base0) :bold t))
-
-;; (custom-theme-set-faces! 'doom-city-lights
-;;                          `(hl-line :background ,(doom-color 'base0))
-;;                          `(markdown-code-face :background ,(doom-color 'base2)))
 
 (when IS-MAC
   ;; enable ligatures support
