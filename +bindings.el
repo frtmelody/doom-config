@@ -191,6 +191,11 @@
       (:prefix "w"
         :desc "Split window right" "/"  #'split-window-right
         )
+      (:prefix "m"
+        :desc "jump to defination" "gg" #'xref-find-definitions
+        :desc "jump to defination" "gG" #'xref-find-definitions-other-window
+        :desc "jump to defination" "gr" #'xref-find-references
+        )
       )
 
 (map!
