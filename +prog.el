@@ -121,9 +121,9 @@
 
 (after! python
   (setq python-indent-offset 4
-        python-shell-interpreter "python3"
-        pippel-python-command "python3"
-        importmagic-python-interpreter "python3"
+        python-shell-interpreter "python"
+        pippel-python-command "python"
+        importmagic-python-interpreter "python"
         flycheck-python-pylint-executable "pylint"
         flycheck-python-flake8-executable "flake8")
 
@@ -139,7 +139,7 @@
 
 
 (after! lsp-python-ms
-  (setq lsp-python-ms-python-executable-cmd "python3"))
+  (setq lsp-python-ms-python-executable-cmd "python"))
 
 
 (use-package! py-isort

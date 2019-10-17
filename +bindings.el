@@ -58,7 +58,7 @@
  "M-e" #'+ivy/switch-workspace-buffer
  "C-M-\\" #'indent-region-or-buffer
  "M-m" #'kmacro-call-macro
- "M-/" #'doom/toggle-comment-region-or-line)
+ "M-/" #'hippie-expand)
 
 (map!
  ;; Unix text-editing keys & motions
@@ -179,6 +179,7 @@
         "l" #'avy-goto-line
         "b" #'avy-pop-mark)
       (:prefix "s"                      ; snippet
+        "d" #'+ivy:rg-from-cwd
         "t" #'yas-describe-tables)
       (:prefix "s"                      ; search
         :desc "Project"   "p" #'+ivy/project-search

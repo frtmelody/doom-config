@@ -310,3 +310,31 @@
 
 (use-package! vterm-toggle
   :defer t)
+
+
+(setq chinese-input-on nil)
+(after! evil
+  (defun fcitx-activate-proc ()
+    (call-process "fcitx-remote" nil nil nil "-o"))
+  (defun fcitx-deactivate-proc ()
+    (call-process "fcitx-remote" nil nil nil "-c"))
+  ;; 通过运行命令切换输入法
+  (defun use-chinese-input ()
+    (when chinese-input-on
+      (fcitx-activate-proc)))
+  ;; 开启或关闭中文输入法
+  (defun chinese-input-enable () (interactive)
+      (setq chinese-input-on t)
+      (when (eq evil-state 'insert)
+        (fcitx-activate-proc)
+        )
+  )
+  (defun chinese-input-disable () (interactive) (setq chinese-input-on nil))
+  ;; 退出insert mode切换第一输入法（英文）
+  (add-hook 'evil-insert-state-exit-hook
+            (lambda () (fcitx-deactivate-proc)))
+  ;; 进入insert mode自动切换中文输入法
+  (add-hook 'evil-insert-state-entry-hook
+            (lambda () (use-chinese-input)))
+  (advice-add 'evil-force-normal-state :after#'fcitx-deactivate-proc)
+ )
