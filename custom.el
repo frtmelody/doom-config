@@ -35,7 +35,8 @@
      ("bitbucket" git-link-bitbucket)
      ("gitorious" git-link-gitorious)
      ("gitlab" git-link-gitlab)
-     ("visualstudio\\|azure" git-link-azure)))))
+     ("visualstudio\\|azure" git-link-azure))))
+ '(projectile-globally-ignored-files (quote (".DS_Store" "Icon" "TAGS" "class" "log"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

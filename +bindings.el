@@ -221,6 +221,9 @@
      "U" #'dired-unmark-all-files
      "u" #'dired-unmark
      "(" #'dired-hide-details-mode
+     "c" #'dired-copy-file
+     "E" #'dired-toggle-read-only
+     "C-k" #'ranger-up-directory
      "+" #'dired-create-directory))
  (:after lispy
    (:map lispy-mode-map
