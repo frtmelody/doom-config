@@ -1,0 +1,23 @@
+# -*- mode: snippet -*-
+# name:bad-good
+# key:bad-good
+# --
+<table>
+<thead><tr><th>不推荐写法</th><th>推荐写法</th></tr></thead>
+<tbody>
+<tr>
+<td>
+
+```go
+$0
+```
+
+</td>
+<td>
+
+```go
+$1
+```
+
+</td></tr>
+</tbody></table>
