@@ -36,6 +36,8 @@
      ("gitorious" git-link-gitorious)
      ("gitlab" git-link-gitlab)
      ("visualstudio\\|azure" git-link-azure))))
+ '(projectile-auto-update-cache t)
+ '(projectile-find-dir-includes-top-level t)
  '(projectile-globally-ignored-files (quote (".DS_Store" "Icon" "TAGS" "class" "log"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

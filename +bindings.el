@@ -163,7 +163,7 @@
         "q" #'symbol-overlay-remove-all)
       (:prefix "p"                      ; project
         "*" (+my/prefix-M-x "projectile-")
-        :desc "Update projectile list" "f" #'+ivy/projectile-find-file
+        :desc "Find projectile file" "f" #'open-file-with-projectile-or-counsel-git
         :desc "Update projectile list" "u" #'update-projectile-known-projects)
       (:prefix "t"                      ; toggle
         "c" #'centered-window-mode

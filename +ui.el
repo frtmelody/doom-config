@@ -34,7 +34,8 @@
   (ignore-errors
     (mac-auto-operator-composition-mode)))
 
-(after! ibuffer
+(after!
+  ibuffer
   ;; set ibuffer name column width
   (define-ibuffer-column size-h
     (:name "Size" :inline t)
@@ -42,13 +43,18 @@
      ((> (buffer-size) 1000000) (format "%7.1fM" (/ (buffer-size) 1000000.0)))
      ((> (buffer-size) 1000) (format "%7.1fk" (/ (buffer-size) 1000.0)))
      (t (format "%8d" (buffer-size)))))
+  (add-hook 'ibuffer-hook
+  (lambda ()(ibuffer-projectile-set-filter-groups)
+    (unless (eq ibuffer-sorting-mode 'alphabetic)
+      (ibuffer-do-sort-by-alphabetic) )))
 
   (setq ibuffer-formats
         '((mark modified read-only " "
                 (name 50 50 :left :nil) " "
                 (size-h 9 -1 :right) " "
                 (mode 16 16 :left :elide) " "
-                filename-and-process))))
+                filename-and-process)))
+    )
 
 (add-hook! 'process-menu-mode-hook
   (setq-local tabulated-list-format [("Process" 30 t)

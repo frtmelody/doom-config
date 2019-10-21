@@ -139,7 +139,18 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (after! projectile
+  (defun git-project-root () (let ((directory default-directory)) (locate-dominating-file directory ".git")))
+  (defun open-file-with-projectile-or-counsel-git ()
+    (interactive)
+    (if (git-project-root)
+        (counsel-git)
+      (if (projectile-project-p)
+          (projectile-find-file)
+        (counsel-file-jump)))
+    )
   (setq compilation-read-command nil)   ; no prompt in projectile-compile-project
+  (setq projectile-completion-system 'ivy)
+  (setq projectile-enable-caching nil)
   ;; . -> Build
   (projectile-register-project-type 'cmake '("CMakeLists.txt")
                                     :configure "cmake %s"
@@ -338,3 +349,5 @@
             (lambda () (use-chinese-input)))
   (advice-add 'evil-force-normal-state :after#'fcitx-deactivate-proc)
  )
+
+
