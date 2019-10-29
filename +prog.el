@@ -13,12 +13,15 @@
   ;; (require 'company-tabnine)
   )
 
+(add-hook 'prog-mode-hook 'linum-mode)
+
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; FLYCHECK
+ ;; FLYCHECK
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(defvar cspell-base-program (executable-find "cspell"))
+ (defvar cspell-base-program (executable-find "cspell"))
 (defvar cspell-config-file-path (concat "'" (expand-file-name  "~/Dotfiles/cspell.json") "'"))
 (defvar cspell-args (string-join `("--config" ,cspell-config-file-path) " "))
 (defun cspell-check-buffer ()
@@ -218,7 +221,7 @@
 
 (after! go-mode
   (add-hook! go-mode (setq indent-tabs-mode nil))
-  (add-hook! go-mode #'lsp))
+  )
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

@@ -26,8 +26,9 @@
 
   (+shell--open-with reveal-in-apps (ivy--read-apps)
                      (string-join `("-g '" ,(get-filename-with-line-number) "'")))
+  (exec-path-from-shell-initialize)
   (+shell--open-with reveal-project-in-apps (ivy--read-apps)
-                     (or (doom-project-root) default-directory))
+                     [(or (doom-project-root) default-directory)])
 
   (+macos--open-with reveal-in-typora "typora" buffer-file-name)
 
@@ -36,12 +37,18 @@
     (iterm-open-new-tab default-directory))
   (defun +macos/reveal-project-in-terminal ()
     (interactive)
-    (iterm-open-new-tab (or (doom-project-root) default-directory))))
+    (iterm-open-new-tab (or (doom-project-root) default-directory)))
+  (defun +macos/reveal-in-tmux ()
+    (interactive)
+    (alacritty-open-new-tab default-directory))
+  (defun +macos/reveal-project-in-tmux ()
+    (interactive)
+    (alacritty-open-new-tab (or (doom-project-root) default-directory)))
+  )
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; LINUX
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (when IS-LINUX
   (defvar linux-terminal (cond ((executable-find "tilix") "tilix")

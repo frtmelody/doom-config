@@ -173,6 +173,19 @@ repository root."
 "
     dir)))
 
+;;;###autoload
+(defun alacritty-open-new-tab (dir &optional args)
+  (do-applescript
+   (format
+    "
+    tell application \"System Events\"
+        tell application \"Alacritty\" to activate
+        key code 17 using (command down)
+        keystroke \"cd %s\\n\"
+    end tell
+"
+    dir)))
+
 ;; "http://xuchunyang.me/Opening-iTerm-From-an-Emacs-Buffer/"
 ;;;###autoload
 (defun +my/iterm-shell-command (command &optional prefix)

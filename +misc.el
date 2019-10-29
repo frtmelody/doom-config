@@ -23,6 +23,7 @@
 (setq evil-cross-lines t)
 
 (use-package! evil-nerd-commenter :defer t)
+(use-package! exec-path-from-shell :defer t)
 
 
 (after! evil
@@ -43,6 +44,9 @@
   (setq avy-timeout-seconds 0.2)
   (setq avy-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l ?q ?w ?e ?r ?u ?i ?o ?p)))
 
+(after! yasnippet
+    (add-to-list 'hippie-expand-try-functions-list 'yas-hippie-try-expand)
+  )
 
 (after! nav-flash
   ;; (defun nav-flash-show (&optional pos end-pos face delay)
@@ -226,65 +230,6 @@
     (if (+my/atomic-chrome-server-running-p)
         (message "Can't start atomic-chrome server, because port 64292 is already used")
       (atomic-chrome-start-server))))
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; PRODIGY
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(after! prodigy
-  (set-evil-initial-state!
-    '(prodigy-mode)
-    'normal)
-
-  (prodigy-define-tag
-    :name 'jekyll
-    :env '(("LANG" "en_US.UTF-8")
-           ("LC_ALL" "en_US.UTF-8")))
-  ;; define service
-  (prodigy-define-service
-    :name "ML Gitbook Publish"
-    :command "npm"
-    :args '("run" "docs:publish")
-    :cwd "~/Developer/Github/Machine_Learning_Questions"
-    :tags '(npm gitbook)
-    :kill-signal 'sigkill
-    :kill-process-buffer-on-stop t)
-
-  (prodigy-define-service
-    :name "ML Gitbook Start"
-    :command "npm"
-    :args '("start")
-    :cwd "~/Developer/Github/Machine_Learning_Questions"
-    :tags '(npm gitbook)
-    :init (lambda () (browse-url "http://localhost:4000"))
-    :kill-signal 'sigkill
-    :kill-process-buffer-on-stop t)
-
-  (prodigy-define-service
-    :name "Hexo Blog Server"
-    :command "hexo"
-    :args '("server" "-p" "4000")
-    :cwd blog-admin-backend-path
-    :tags '(hexo server)
-    :init (lambda () (browse-url "http://localhost:4000"))
-    :kill-signal 'sigkill
-    :kill-process-buffer-on-stop t)
-
-  (prodigy-define-service
-    :name "Hexo Blog Deploy"
-    :command "hexo"
-    :args '("deploy" "--generate")
-    :cwd blog-admin-backend-path
-    :tags '(hexo deploy)
-    :kill-signal 'sigkill
-    :kill-process-buffer-on-stop t)
-
-  (defun refresh-chrome-current-tab (beg end length-before)
-    (call-interactively '+my/browser-refresh--chrome-applescript))
-  ;; add watch for prodigy-view-mode buffer change event
-  (add-hook 'prodigy-view-mode-hook
-            #'(lambda() (set (make-local-variable 'after-change-functions) #'refresh-chrome-current-tab))))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

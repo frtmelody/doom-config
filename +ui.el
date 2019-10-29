@@ -1,6 +1,7 @@
 ;;; private/my/+ui.el -*- lexical-binding: t; -*-
 
-(load-theme 'doom-one t)
+;; (load-theme 'doom-one t)
+(load-theme 'doom-vibrant t)
 
 (when (display-graphic-p)
   (cond (IS-MAC
@@ -8,7 +9,7 @@
                doom-big-font (font-spec :family "Source Code Pro" :size 16)
                doom-modeline-height 32))
         (IS-LINUX
-         (setq resolution-factor (eval (/ (x-display-pixel-height) 1080.0)))
+         (resolution-factor setq (eval (/ (x-display-pixel-height) 1080.0)))
          (setq doom-font (font-spec :family "Operator Mono" :size (eval (round (* 14 resolution-factor))) :weight 'light)
                doom-big-font (font-spec :family "Operator Mono" :size (eval (round (* 20 resolution-factor))))
                doom-modeline-height (eval (round (* 32 resolution-factor))))))

@@ -38,3 +38,4 @@
 (let ((profile "~/.config/doom/profile.el"))
   (when (file-exists-p profile)
     (load-file profile)))
+

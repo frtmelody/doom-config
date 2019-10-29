@@ -85,12 +85,12 @@
 
 ;; leader/localleader is not compatible with :gnvmi
 (map! :leader
-      :desc "counsel-M-x" :nmv "SPC" #'counsel-M-x
+      ;; :desc "counsel-M-x" :nmv "SPC" #'counsel-M-x
       :desc "lispyville" :n "L" (+my/prefix-M-x "lispyville ")
 
       (:prefix-map ("a" . "app")
         "s" #'prodigy
-        "b" #'blog-admin-start
+        "e" #'elfeed
         :desc "List process" "p" #'list-processes
         :desc "Kill process" "P" #'counsel-list-processes
         "x" #'align-regexp)
@@ -145,8 +145,8 @@
           :desc "Reveal in default program"  "f" #'+macos/open-in-default-program
           :desc "Reveal in Finder"           "o" #'+macos/reveal-in-finder
           :desc "Reveal project in Finder"   "O" #'+macos/reveal-project-in-finder
-          :desc "Reveal in Terminal"         "t" #'+macos/reveal-in-terminal
-          :desc "Reveal project in Terminal" "T" #'+macos/reveal-project-in-terminal
+          :desc "Reveal in Terminal"         "t" #'+macos/reveal-in-tmux
+          :desc "Reveal project in Terminal" "T" #'+macos/reveal-project-in-tmux
           :desc "Reveal file in Apps"        "," #'+shell/reveal-in-apps
           :desc "Reveal project in Apps"     "." #'+shell/reveal-project-in-apps)
         (:when IS-LINUX
@@ -195,6 +195,10 @@
         :desc "jump to defination" "gg" #'xref-find-definitions
         :desc "jump to defination" "gG" #'xref-find-definitions-other-window
         :desc "jump to defination" "gr" #'xref-find-references
+        :desc "jump to dash doc" "gd" #'dash-at-point
+        )
+      (:prefix "j"
+        :desc "Imenu" "i" #'counsel-imenu
         )
       )
 
@@ -224,6 +228,7 @@
      "c" #'dired-copy-file
      "E" #'dired-toggle-read-only
      "C-k" #'ranger-up-directory
+     "0" #'dired-back-to-start-of-files
      "+" #'dired-create-directory))
  (:after lispy
    (:map lispy-mode-map
