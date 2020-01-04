@@ -215,6 +215,8 @@
             ("stackexchange\\.com" . gfm-mode)
             ("stackoverflow\\.com" . gfm-mode)
             ("discordapp\\.com"    . gfm-mode)
+            ("git\\.inke\\.cn"     . gfm-mode)
+            ("wiki\\.inkept\\.cn"     . html-mode)
             ("coderpad\\.io"       . c++-mode)
             ;; jupyter notebook
             ("localhost\\:8888"    . python-mode)

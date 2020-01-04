@@ -247,7 +247,10 @@
 
 (after! lsp-mode
   (setq lsp-use-native-json t
-        lsp-print-io nil)
+        lsp-print-io nil
+        lsp-enable-file-watchers nil
+        )
+
   (dolist (dir '("[/\\\\]\\.ccls-cache$"
                  "[/\\\\]\\.mypy_cache$"
                  "[/\\\\]\\.pytest_cache$"
@@ -295,3 +298,24 @@
                    "%e %a"))
       (:remove  . ("%e")))
     :default "c++"))
+
+
+(defun go-packages-find ()
+  (sort
+   (delete-dups
+    (cl-mapcan (lambda (topdir)
+                 (let ((pkgdir (concat topdir "/pkg")))
+                   (mapcar (lambda (file)
+                             (let ((sub (substring file 0 -2)))
+                               (mapconcat #'identity (cdr (split-string sub "/")) "/")))
+                           (split-string (shell-command-to-string
+                                          (format "find \"%s\" -not -path \"%s/tool*\" -not -path \"%s/obj/*\" -name \"*.a\"  -printf \"%%P\\n\""
+                                                  pkgdir pkgdir pkgdir))))))
+               (go-root-and-paths)))
+   #'string<))
+
+
+
+(defun go-packages-gopkgs ()
+  "Return a list of all Go packages, using `gopkgs'."
+  (sort (process-lines "gopkgs") #'string<))
