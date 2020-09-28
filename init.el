@@ -43,7 +43,7 @@
        vc-gutter                        ; vcs diff in the fringe
        vi-tilde-fringe                  ; fringe tildes to mark beyond EOB
        window-select                    ; visually switch windows
-       workspaces                       ; tab emulation, persistence & separate workspaces
+       ;; workspaces                       ; tab emulation, persistence & separate workspaces
 
        :editor
        (evil +everywhere)               ; come to the dark side, we have cookies
@@ -76,9 +76,6 @@
        editorconfig                     ; let someone else argue about tabs vs spaces
        ;; ein               ; tame Jupyter notebooks with emacs
        eval                             ; run code, run (also, repls)
-       (flycheck
-        +childframe)                    ; tasing you for every semicolon you forget
-       flyspell                         ; tasing you for misspelling mispelling
        ;;gist              ; interacting with github gists
        (lookup                          ; helps you navigate your code and documentation
         +devdocs                        ; ...on devdocs.io online
@@ -94,7 +91,10 @@
        ;;terraform         ; infrastructure as code
        tmux                             ; an API for interacting with tmux
        upload                           ; map local to remote projects via ssh/ftp
-       ;; wakatime
+
+       :checkers
+       syntax
+       spell
 
        :lang
        ;;agda              ; types of types of types of types...
@@ -110,6 +110,7 @@
        ;;elixir            ; erlang done right
        ;;elm               ; care for a cup of TEA?
        emacs-lisp                   ; drown in parentheses
+       yaml
        ;;ess               ; emacs speaks statistics
        (go +lsp) ; the hipster dialect
        ;;(haskell +intero) ; a language that's lazier than I am
@@ -148,34 +149,35 @@
        sh                         ; she sells (ba|z)sh shells on the C xor
        ;;solidity          ; do you need a blockchain? No.
        swift                      ; who asked for emoji variables?
-       ;;terra             ; Earth and Moon in alignment for performance.
-       web                              ; the tubes
-       ;;vala              ; GObjective-C
-
        ;; Applications are complex and opinionated modules that transform Emacs
        ;; toward a specific purpose. They may have additional dependencies and
        ;; should be loaded late.
-       :app
-       ;;(email +gmail)    ; emacs as an email client
-       ;;irc               ; how neckbeards socialize
-       (rss +org)                   ; emacs as an RSS reader
-       ;;twitter           ; twitter client https://twitter.com/vnought
-       (write                           ; emacs as a word processor (latex + org + markdown)
-        +wordnut                        ; wordnet (wn) search
-        +langtool)                      ; a proofreader (grammar/style check) for Emacs
 
+       :app
+       (rss +org)
        :collab
-       ;;floobits          ; peer programming for a price
-       ;;impatient-mode    ; show off code over HTTP
 
        :config
-       ;; For literate config users. This will tangle+compile a config.org
-       ;; literate config in your `doom-private-dir' whenever it changes.
-       ;;literate
 
        ;; The default module sets reasonable defaults for Emacs. It also
        ;; provides a Spacemacs-inspired keybinding scheme and a smartparens
        ;; config. Use it as a reference for your own modules.
+
+       ;;terra             ; Earth and Moon in alignment for performance.
+       ; the tubes                              web
+       ;;vala              ; GObjective-C
+       ;;(email +gmail)    ; emacs as an email client
+       ;;irc               ; how neckbeards socialize
+       ;;; emacs as an RSS reader
+       ;;twitter           ; twitter client https://twitter.com/vnought
+       ;; (write                           ; emacs as a word processor (latex + org + markdown)
+       ;;  +wordnut                        ; wordnet (wn) search
+       ;;  +langtool)                      ; a proofreader (grammar/style check) for Emacs
+       ;;floobits          ; peer programming for a price
+       ;;impatient-mode    ; show off code over HTTP
+       ;; For literate config users. This will tangle+compile a config.org
+       ;; literate config in your `doom-private-dir' whenever it changes.
+       ;;literate
        (default +bindings +snippets +smartparens)
 
        :private

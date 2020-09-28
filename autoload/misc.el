@@ -181,6 +181,7 @@ repository root."
     tell application \"System Events\"
         tell application \"Alacritty\" to activate
         key code 17 using (command down)
+        delay 0.5
         keystroke \"cd %s\\n\"
     end tell
 "

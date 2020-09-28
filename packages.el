@@ -39,3 +39,4 @@
 (package! exec-path-from-shell)
 (package! flycheck-google-cpplint :recipe (:host github :repo "flycheck/flycheck-google-cpplint"))
 (package! ox-confluence-en :recipe (:host github :repo "frtmelody/ox-confluence-en"))
+(package! winum)

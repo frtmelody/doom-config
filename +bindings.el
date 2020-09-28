@@ -55,7 +55,7 @@
  "C-h C-v" #'find-variable-at-point
  "<f8>"    #'describe-mode
  ;; Others
- "M-e" #'+ivy/switch-workspace-buffer
+ ;; "M-e" #'+ivy/switch-workspace-buffer
  "C-M-\\" #'indent-region-or-buffer
  "M-m" #'kmacro-call-macro
  "M-/" #'hippie-expand)
@@ -88,6 +88,15 @@
       ;; :desc "counsel-M-x" :nmv "SPC" #'counsel-M-x
       :desc "lispyville" :n "L" (+my/prefix-M-x "lispyville ")
 
+      "0" 'winum-select-window-0-or-10
+      "1" 'winum-select-window-1
+      "2" 'winum-select-window-2
+      "3" 'winum-select-window-3
+      "4" 'winum-select-window-4
+      "8" 'split-window-below
+      "9" 'split-window-right
+
+
       (:prefix-map ("a" . "app")
         "s" #'prodigy
         "e" #'elfeed
@@ -105,8 +114,8 @@
         :desc "Toggle Comment"         "l" #'doom/toggle-comment-region-or-line
         :desc "Cspell check buffer"    "c" #'cspell-check-buffer
         :desc "Cspell check directory" "C" #'cspell-check-directory)
-      (:prefix "TAB"
-        :desc "Switch workspace" "TAB" #'+workspace/other)
+       ;; (:prefix "TAB"
+       ;;   :desc "Switch workspace" "TAB" #'+workspace/other)
       (:prefix "f"                      ; file
         :desc "Save all"  "s" #'evil-write-all
         :desc "Find file" "f" #'counsel-find-file
@@ -145,8 +154,8 @@
           :desc "Reveal in default program"  "f" #'+macos/open-in-default-program
           :desc "Reveal in Finder"           "o" #'+macos/reveal-in-finder
           :desc "Reveal project in Finder"   "O" #'+macos/reveal-project-in-finder
-          :desc "Reveal in terminal"         "t" #'+macos/reveal-in-terminal
-          :desc "Reveal project in terminal" "T" #'+macos/reveal-project-in-terminal
+          :desc "Reveal in terminal"         "t" #'+macos/reveal-in-tmux
+          :desc "Reveal project in terminal" "T" #'+macos/reveal-project-in-tmux
           :desc "Reveal file in Apps"        "," #'+shell/reveal-in-apps
           :desc "Reveal project in Apps"     "." #'+shell/reveal-project-in-apps)
         (:when IS-LINUX
@@ -400,10 +409,10 @@
      "A-v"   #'company-previous-page
      "C-j"   #'company-show-location
      "C-i"   #'company-complete-selection))
- (:after vterm
-   (:map vterm-mode-map
-     "M-e" nil
-     "M-w" #'+workspace/close-window-or-workspace))
+ ;; (:after vterm
+   ;; (:map vterm-mode-map
+     ;; "M-e" nil)
+     ;; "M-w" #'+workspace/close-window-or-workspace))
  (:after term
    (:map term-raw-map
      :i "M-v" #'term-paste)))

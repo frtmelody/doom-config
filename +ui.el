@@ -1,12 +1,25 @@
 ;;; private/my/+ui.el -*- lexical-binding: t; -*-
 
 ;; (load-theme 'doom-one t)
+
+
+
+;; (
+;;   setq doom-themes-enable-bold t   ; if nil, bold is universally disabled
+;;        doom-themes-enable-italic t ; if nil, italics is universally disabled
+;;  )
+
+;; (set-face-attribute 'font-lock-comment-face nil :foreground "#5B6268" :slant 'italic)
+;; (set-face-attribute 'font-lock-function-name-face nil :foreground "#c678dd" :slant 'italic)
+;; (set-face-attribute 'font-lock-variable-name-face nil :foreground "#dcaeea" :slant 'italic)
+
+;; (load-theme 'doom-one t)
 (load-theme 'doom-vibrant t)
 
 (when (display-graphic-p)
   (cond (IS-MAC
-         (setq doom-font (font-spec :family "Source Code Pro" :size 12)
-               doom-big-font (font-spec :family "Source Code Pro" :size 16)
+         (setq doom-font (font-spec :family "Source Code Pro" :size 12 :weight 'normal)
+               doom-big-font (font-spec :family "Source Code Pro" :size 16 :weight 'normal)
                doom-modeline-height 32))
         (IS-LINUX
          (resolution-factor setq (eval (/ (x-display-pixel-height) 1080.0)))
@@ -24,6 +37,7 @@
 (setq +workspaces-on-switch-project-behavior t)
 
 (remove-hook 'doom-init-ui-hook #'blink-cursor-mode)
+(winum-mode)
 
 ;; disable line-numbers by default
 (setq display-line-numbers-type nil)
@@ -35,9 +49,9 @@
   (ignore-errors
     (mac-auto-operator-composition-mode)))
 
+  ;; set ibuffer name column width
 (after!
   ibuffer
-  ;; set ibuffer name column width
   (define-ibuffer-column size-h
     (:name "Size" :inline t)
     (cond

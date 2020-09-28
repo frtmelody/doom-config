@@ -8,6 +8,7 @@
   (setq company-idle-delay 0.2))
 
 
+(setq lsp-java-jdt-download-url  "https://download.eclipse.org/jdtls/milestones/0.57.0/jdt-language-server-0.57.0-202006172108.tar.gz")
 (use-package! company-tabnine
   :init (add-to-list 'company-backends #'company-tabnine)
   ;; (require 'company-tabnine)
@@ -93,7 +94,7 @@
 ;; CC
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(def-package! bazel-mode
+(use-package! bazel-mode
   :defer t
   :init
   (add-to-list 'auto-mode-alist '("BUILD\\(\\.bazel\\)?\\'" . bazel-mode))
