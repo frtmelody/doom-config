@@ -169,11 +169,11 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
-(use-package! magit-todos
-  :init
-  (setq magit-todos-ignored-keywords nil)
-  :config
-  (setq magit-todos-exclude-globs '("third-party/*" "third_party/*")))
+;;(use-package! magit-todos
+;; :init
+;; (setq magit-todos-ignored-keywords nil)
+;; :config
+;; (setq magit-todos-exclude-globs '("third-party/*" "third_party/*")))
 
 
 ;; magit-todos uses hl-todo-keywords

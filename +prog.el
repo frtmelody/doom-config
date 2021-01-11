@@ -5,14 +5,15 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (after! company
-  (setq company-idle-delay 0.2))
+  (setq company-idle-delay 0.2)
+  )
 
 
 (setq lsp-java-jdt-download-url  "https://download.eclipse.org/jdtls/milestones/0.57.0/jdt-language-server-0.57.0-202006172108.tar.gz")
-(use-package! company-tabnine
-  :init (add-to-list 'company-backends #'company-tabnine)
-  ;; (require 'company-tabnine)
-  )
+;; (use-package! company-tabnine
+;;   :init (add-to-list 'company-backends #'company-tabnine)
+;;   ;; (require 'company-tabnine)
+;;   )
 
 (add-hook 'prog-mode-hook 'linum-mode)
 

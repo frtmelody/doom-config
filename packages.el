@@ -24,7 +24,7 @@
 (package! vterm-toggle :recipe (:host github :repo "jixiuf/vterm-toggle"))
 (package! counsel-etags)
 (package! ibuffer-projectile)
-
+;; 
 ;; programming
 (package! bazel-mode :recipe (:host github :repo "bazelbuild/emacs-bazel-mode"))
 (package! import-js)
@@ -33,10 +33,12 @@
 (package! importmagic)
 (package! py-isort)
 (package! flycheck-mypy)
-(package! confluence)
-(package! org-plus-contrib)
 (package! dash-at-point)
-(package! exec-path-from-shell)
 (package! flycheck-google-cpplint :recipe (:host github :repo "flycheck/flycheck-google-cpplint"))
 (package! ox-confluence-en :recipe (:host github :repo "frtmelody/ox-confluence-en"))
+;;(package! git-link)
+
+;;os
+(package! exec-path-from-shell)
+;; ui
 (package! winum)

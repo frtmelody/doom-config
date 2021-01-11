@@ -154,8 +154,8 @@
           :desc "Reveal in default program"  "f" #'+macos/open-in-default-program
           :desc "Reveal in Finder"           "o" #'+macos/reveal-in-finder
           :desc "Reveal project in Finder"   "O" #'+macos/reveal-project-in-finder
-          :desc "Reveal in terminal"         "t" #'+macos/reveal-in-tmux
-          :desc "Reveal project in terminal" "T" #'+macos/reveal-project-in-tmux
+          :desc "Reveal in terminal"         "t" #'+macos/reveal-in-terminal
+          :desc "Reveal project in terminal" "T" #'+macos/reveal-project-in-terminal
           :desc "Reveal file in Apps"        "," #'+shell/reveal-in-apps
           :desc "Reveal project in Apps"     "." #'+shell/reveal-project-in-apps)
         (:when IS-LINUX

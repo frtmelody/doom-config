@@ -28,7 +28,7 @@
                      (string-join `("-g '" ,(get-filename-with-line-number) "'")))
   (exec-path-from-shell-initialize)
   (+shell--open-with reveal-project-in-apps (ivy--read-apps)
-                     [(or (doom-project-root) default-directory)])
+                     (or (doom-project-root) default-directory))
 
   (+macos--open-with reveal-in-typora "typora" buffer-file-name)
 

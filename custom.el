@@ -17,6 +17,7 @@
      ("src.fedoraproject.org" . "pagure")
      ("code.inke.cn" . "gitlab")
      ("git.inke.cn" . "gitlab")))
+ '(company-box-show-single-candidate 'when-no-other-frontend)
  '(exec-path-from-shell-arguments '("-l"))
  '(forge-alist
    '(("github.com" "api.github.com" "github.com" forge-github-repository)
@@ -45,6 +46,8 @@
      ("visualstudio\\|azure" git-link-azure)))
  '(go-packages-function 'go-packages-find)
  '(gofmt-command "goimports")
+ '(org-agenda-files
+   '("/Users/melody/org-notes/gtd.org" "/Users/melody/org-notes/inbox.org" "/Users/melody/org-notes/journal.org" "/Users/melody/org-notes/notes.org" "/Users/melody/org-notes/snippet.org" "/Users/melody/org-notes/todo.org"))
  '(projectile-auto-update-cache t)
  '(projectile-find-dir-includes-top-level t)
  '(projectile-globally-ignored-files '(".DS_Store" "Icon" "TAGS" "class" "log"))

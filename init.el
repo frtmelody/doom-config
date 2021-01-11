@@ -80,8 +80,8 @@
        (lookup                          ; helps you navigate your code and documentation
         +devdocs                        ; ...on devdocs.io online
         +docsets)                       ; ...or in Dash docsets locally
+       macos
        lsp
-       macos                            ; MacOS-specific commands
        magit                            ; a git porcelain for Emacs
        make                             ; run make tasks from Emacs
        ;;password-store    ; password manager for nerds
@@ -94,7 +94,7 @@
 
        :checkers
        syntax
-       spell
+       ;; (spell +flyspell)
 
        :lang
        ;;agda              ; types of types of types of types...
@@ -117,6 +117,7 @@
        ;;hy                ; readability of scheme w/ speed of python
        ;;idris             ;
        (java +lsp)                  ; the poster child for carpal tunnel syndrome ;(java +meghanada)
+       (dart +lsp)
        javascript                   ; all(hope(abandon(ye(who(enter(here))))))
        ;;julia             ; a better, faster MATLAB
        kotlin                           ; a better, slicker Java(Script)
@@ -132,7 +133,7 @@
         +ipython                        ; ipython support for babel
         +pandoc                         ; pandoc integration into org's exporter
         +present)                       ; using Emacs for presentations
-       perl                             ; write code no one else can comprehend
+       raku
        php                              ; perl's insecure younger brother
        ;;plantuml          ; diagrams for confusing people more
        ;;purescript        ; javascript, but functional

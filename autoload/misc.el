@@ -175,6 +175,7 @@ repository root."
 
 ;;;###autoload
 (defun alacritty-open-new-tab (dir &optional args)
+  (fcitx-deactivate-proc)
   (do-applescript
    (format
     "
