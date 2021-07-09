@@ -16,7 +16,7 @@
 
 (use-package! ox-confluence-en
   :defer t
-)
+  )
 
 (after! org
   (require 'ox-confluence-en)

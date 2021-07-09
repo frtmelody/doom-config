@@ -50,8 +50,8 @@ non-nil value to enable trashing for file operations."
 ;;;###autoload
 (defmacro +shell--open-with (id &optional app args)
   `(defun ,(intern (format "+shell/%s" id)) ()
-       (interactive)
-       (+shell-open-with ,app ,args)))
+     (interactive)
+     (+shell-open-with ,app ,args)))
 
 ;;;###autoload
 (defmacro +docker--open-with (id &optional app args container)

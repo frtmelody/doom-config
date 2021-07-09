@@ -2,13 +2,6 @@
 
 ;; (load-theme 'doom-one t)
 
-
-
-;; (
-;;   setq doom-themes-enable-bold t   ; if nil, bold is universally disabled
-;;        doom-themes-enable-italic t ; if nil, italics is universally disabled
-;;  )
-
 ;; (set-face-attribute 'font-lock-comment-face nil :foreground "#5B6268" :slant 'italic)
 ;; (set-face-attribute 'font-lock-function-name-face nil :foreground "#c678dd" :slant 'italic)
 ;; (set-face-attribute 'font-lock-variable-name-face nil :foreground "#dcaeea" :slant 'italic)
@@ -32,8 +25,8 @@
         '((width . 110)
           (height . 65))))
 
-(setq doom-modeline-buffer-file-name-style 'relative-to-project)
 
+(setq doom-modeline-buffer-file-name-style 'relative-to-project)
 (setq +workspaces-on-switch-project-behavior t)
 
 (remove-hook 'doom-init-ui-hook #'blink-cursor-mode)
@@ -49,7 +42,7 @@
   (ignore-errors
     (mac-auto-operator-composition-mode)))
 
-  ;; set ibuffer name column width
+;; set ibuffer name column width
 (after!
   ibuffer
   (define-ibuffer-column size-h
@@ -59,9 +52,9 @@
      ((> (buffer-size) 1000) (format "%7.1fk" (/ (buffer-size) 1000.0)))
      (t (format "%8d" (buffer-size)))))
   (add-hook 'ibuffer-hook
-  (lambda ()(ibuffer-projectile-set-filter-groups)
-    (unless (eq ibuffer-sorting-mode 'alphabetic)
-      (ibuffer-do-sort-by-alphabetic) )))
+            (lambda ()(ibuffer-projectile-set-filter-groups)
+              (unless (eq ibuffer-sorting-mode 'alphabetic)
+                (ibuffer-do-sort-by-alphabetic) )))
 
   (setq ibuffer-formats
         '((mark modified read-only " "
@@ -69,7 +62,7 @@
                 (size-h 9 -1 :right) " "
                 (mode 16 16 :left :elide) " "
                 filename-and-process)))
-    )
+  )
 
 (add-hook! 'process-menu-mode-hook
   (setq-local tabulated-list-format [("Process" 30 t)

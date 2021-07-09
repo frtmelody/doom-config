@@ -51,8 +51,8 @@
           (word-at-point)
           )))
     (with-current-buffer cmdbuf
-	  (setq realgud:process-filter-save (process-filter process))
-	  (set-process-filter process 'realgud:eval-process-output))
+      (setq realgud:process-filter-save (process-filter process))
+      (set-process-filter process 'realgud:eval-process-output))
     (realgud:cmd-eval expr)
     ))
 

@@ -22,14 +22,13 @@
         +childframe)
 
        :ui
-       ;;deft              ; notational velocity for Emacs
        doom                     ; what makes DOOM look the way it does
        doom-dashboard           ; a nifty splash screen for Emacs
        doom-quit                ; DOOM quit-message prompts when you quit Emacs
        ;;fill-column       ; a `fill-column' indicator
        hl-todo                  ; highlight TODO/FIXME/NOTE tags
        ;; indent-guides     ; highlighted indent columns
-       modeline                 ; snazzy, Atom-inspired modeline, plus API
+       (modeline +light) ; snazzy, Atom-inspired modeline, plus API
        nav-flash                ; blink the current line after jumping
        ;;neotree           ; a project drawer, like NERDTree for vim
        ophints                  ; highlight the region an operation acts on
@@ -40,7 +39,7 @@
        ;;tabbar            ; FIXME an (incomplete) tab bar for Emacs
        treemacs                 ; a project drawer, like neotree but cooler
        ;;unicode           ; extended unicode support for various languages
-       vc-gutter                        ; vcs diff in the fringe
+       ;; vc-gutter                        ; vcs diff in the fringe
        vi-tilde-fringe                  ; fringe tildes to mark beyond EOB
        window-select                    ; visually switch windows
        ;; workspaces                       ; tab emulation, persistence & separate workspaces
@@ -63,32 +62,26 @@
        electric                         ; smarter, keyword-based electric-indent
        vc                               ; version-control and Emacs, sitting in a tree
 
-       :term
-       eshell                           ; a consistent, cross-platform shell (WIP)
+       ; :term
+       ;; eshell                           ; a consistent, cross-platform shell (WIP)
        ;;term              ; terminals in Emacs
-       vterm                            ; another terminals in
+       ; vterm                            ; another terminals in
 
        :tools
-       ;;ansible
        debugger                         ; FIXME stepping through code, to help you add bugs
        direnv
        docker
-       editorconfig                     ; let someone else argue about tabs vs spaces
-       ;; ein               ; tame Jupyter notebooks with emacs
        eval                             ; run code, run (also, repls)
-       ;;gist              ; interacting with github gists
        (lookup                          ; helps you navigate your code and documentation
         +devdocs                        ; ...on devdocs.io online
         +docsets)                       ; ...or in Dash docsets locally
        macos
-       lsp
-       magit                            ; a git porcelain for Emacs
+       (lsp +eglot)
+       (magit +forge) ; a git porcelain for Emacs
        make                             ; run make tasks from Emacs
-       ;;password-store    ; password manager for nerds
        pdf                              ; pdf enhancements
        prodigy                          ; FIXME managing external services & code builders
        rgb                              ; creating color strings
-       ;;terraform         ; infrastructure as code
        tmux                             ; an API for interacting with tmux
        upload                           ; map local to remote projects via ssh/ftp
 
@@ -97,27 +90,12 @@
        ;; (spell +flyspell)
 
        :lang
-       ;;agda              ; types of types of types of types...
-       ;;assembly          ; assembly for fun or debugging
        (cc +lsp)                 ; C/C++/Obj-C madness
-       ;;clojure           ; java with a lisp
-       ;;common-lisp       ; if you've seen one lisp, you've seen them all
-       ;;coq               ; proofs-as-programs
-       ;;crystal           ; ruby at the speed of c
-       ;;csharp            ; unity, .NET, and mono shenanigans
        data                       ; config/data formats
-       ;;erlang            ; an elegant language for a more civilized age
-       ;;elixir            ; erlang done right
-       ;;elm               ; care for a cup of TEA?
        emacs-lisp                   ; drown in parentheses
        yaml
-       ;;ess               ; emacs speaks statistics
        (go +lsp) ; the hipster dialect
-       ;;(haskell +intero) ; a language that's lazier than I am
-       ;;hy                ; readability of scheme w/ speed of python
-       ;;idris             ;
        (java +lsp)                  ; the poster child for carpal tunnel syndrome ;(java +meghanada)
-       (dart +lsp)
        javascript                   ; all(hope(abandon(ye(who(enter(here))))))
        ;;julia             ; a better, faster MATLAB
        kotlin                           ; a better, slicker Java(Script)
@@ -125,34 +103,24 @@
        ;;ledger            ; an accounting system in Emacs
        lua                              ; one-based indices? one-based indices
        markdown                         ; writing docs for people to ignore
-       ;;nim               ; python + lisp at the speed of c
-       ;; nix               ; I hereby declare "nix geht mehr!"
-       ;;ocaml             ; an objective camel
-       (org                             ; organize your plain life in plain text
-        +dragndrop                      ; file drag & drop support
-        +ipython                        ; ipython support for babel
-        +pandoc                         ; pandoc integration into org's exporter
-        +present)                       ; using Emacs for presentations
+       (org
+        +dragndrop
+        +ipython
+        +pandoc
+        +present)
        raku
-       php                              ; perl's insecure younger brother
-       ;;plantuml          ; diagrams for confusing people more
-       ;;purescript        ; javascript, but functional
+       php
        (python
         +pyenv
         +conda
-        +lsp)                     ; beautiful is better than ugly
-       ;;qt                ; the 'cutest' gui framework ever
-       ;;racket            ; a DSL for DSLs
-       ;;rest              ; Emacs as a REST client
-       ruby                       ; 1.step do {|i| p "Ruby is #{i.even? ? 'love' : 'life'}"}
-       rust                       ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
-       scala                      ; java, but good
-       sh                         ; she sells (ba|z)sh shells on the C xor
-       ;;solidity          ; do you need a blockchain? No.
-       swift                      ; who asked for emoji variables?
-       ;; Applications are complex and opinionated modules that transform Emacs
-       ;; toward a specific purpose. They may have additional dependencies and
-       ;; should be loaded late.
+        +lsp)
+       (ruby +lsp)
+       (rust +lsp)
+       (dart +lsp +flutter)
+       scala
+       sh
+       swift
+       nix
 
        :app
        (rss +org)
@@ -165,7 +133,7 @@
        ;; config. Use it as a reference for your own modules.
 
        ;;terra             ; Earth and Moon in alignment for performance.
-       ; the tubes                              web
+                                        ; the tubes                              web
        ;;vala              ; GObjective-C
        ;;(email +gmail)    ; emacs as an email client
        ;;irc               ; how neckbeards socialize
@@ -182,7 +150,7 @@
        (default +bindings +snippets +smartparens)
 
        :private
-       ;; lsp-intellij
+       lsp-intellij
        )
 
 (setq custom-file (expand-file-name "custom.el" doom-private-dir))

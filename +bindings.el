@@ -11,12 +11,12 @@
 (map!
  ;; overrides other minor mode keymaps (just for non-evil)
  (:map override ;; general-override-mode-map
-   "M-q"   (if (daemonp) #'delete-frame #'save-buffers-kill-terminal)
-   "M-p"   #'+ivy/projectile-find-file
-   "M-y"   #'helm-show-kill-ring
-   "C-h m" #'describe-mode
-   "M-;"   #'+my/insert-semicolon-at-the-end-of-this-line
-   "C-M-;" #'+my/delete-semicolon-at-the-end-of-this-line)
+  "M-q"   (if (daemonp) #'delete-frame #'save-buffers-kill-terminal)
+  "M-p"   #'+ivy/projectile-find-file
+  "M-y"   #'helm-show-kill-ring
+  "C-h m" #'describe-mode
+  "M-;"   #'+my/insert-semicolon-at-the-end-of-this-line
+  "C-M-;" #'+my/delete-semicolon-at-the-end-of-this-line)
  "M-`"   #'other-frame
  "C-M-o" #'other-frame
  ;; fix OS window/frame navigation/manipulation keys
@@ -78,10 +78,10 @@
  :gnmvi "M-." #'+lookup/definition
 
  (:prefix "C-x"
-   :n "e"  #'pp-eval-last-sexp)
+  :n "e"  #'pp-eval-last-sexp)
  (:prefix "C-c"
-   :ni "/" #'company-files
-   :desc "Text properties at point" :nmv "f" (λ! (message "%S" (text-properties-at (point))))))
+  :ni "/" #'company-files
+  :desc "Text properties at point" :nmv "f" (λ! (message "%S" (text-properties-at (point))))))
 
 ;; leader/localleader is not compatible with :gnvmi
 (map! :leader
@@ -98,321 +98,321 @@
 
 
       (:prefix-map ("a" . "app")
-        "s" #'prodigy
-        "e" #'elfeed
-        :desc "List process" "p" #'list-processes
-        :desc "Kill process" "P" #'counsel-list-processes
-        "x" #'align-regexp)
+       "s" #'prodigy
+       "e" #'elfeed
+       :desc "List process" "p" #'list-processes
+       :desc "Kill process" "P" #'counsel-list-processes
+       "x" #'align-regexp)
       (:prefix "b"                      ; buffer
-        :desc "Switch buffer" "b" #'ivy-switch-buffer
-        "h" #'+doom-dashboard/open
-        "r" #'revert-buffer-no-confirm
-        "R" #'reload-buffer-no-confirm
-        "U" #'+my/untabify-buffer)
+       :desc "Switch buffer" "b" #'ivy-switch-buffer
+       "h" #'+doom-dashboard/open
+       "r" #'revert-buffer-no-confirm
+       "R" #'reload-buffer-no-confirm
+       "U" #'+my/untabify-buffer)
       (:prefix "c"                      ; code
-        :desc "Toggle Comment"         "/" #'doom/toggle-comment-region-or-line
-        :desc "Toggle Comment"         "l" #'doom/toggle-comment-region-or-line
-        :desc "Cspell check buffer"    "c" #'cspell-check-buffer
-        :desc "Cspell check directory" "C" #'cspell-check-directory)
-       ;; (:prefix "TAB"
-       ;;   :desc "Switch workspace" "TAB" #'+workspace/other)
+       :desc "Toggle Comment"         "/" #'doom/toggle-comment-region-or-line
+       :desc "Toggle Comment"         "l" #'doom/toggle-comment-region-or-line
+       :desc "Cspell check buffer"    "c" #'cspell-check-buffer
+       :desc "Cspell check directory" "C" #'cspell-check-directory)
+      ;; (:prefix "TAB"
+      ;;   :desc "Switch workspace" "TAB" #'+workspace/other)
       (:prefix "f"                      ; file
-        :desc "Save all"  "s" #'evil-write-all
-        :desc "Find file" "f" #'counsel-find-file
-        :desc "Deer"      "j" #'deer)
+       :desc "Save all"  "s" #'evil-write-all
+       :desc "Find file" "f" #'counsel-find-file
+       :desc "Deer"      "j" #'deer)
       (:prefix "g"                      ; git
-        :desc "Magit browse commit" "oc" #'+vc/git-browse-commit
-        :desc "Magit wip worktree"  "w"  #'magit-wip-log-worktree
-        :desc "M-x magit-*" "*" (+my/prefix-M-x "magit-"))
+       :desc "Magit browse commit" "oc" #'+vc/git-browse-commit
+       :desc "Magit wip worktree"  "w"  #'magit-wip-log-worktree
+       :desc "M-x magit-*" "*" (+my/prefix-M-x "magit-"))
       (:prefix "h"                      ; help
-        :desc "View *Messages*" "m" #'view-echo-area-messages
-        "C" #'helpful-command)
+       :desc "View *Messages*" "m" #'view-echo-area-messages
+       "C" #'helpful-command)
       (:prefix-map ("e" . "error")
-        :desc "Flymake next error"      "N" #'flymake-goto-next-error
-        :desc "Flymake previous error"  "P" #'flymake-goto-prev-error
-        :desc "Flymake list errors"     "L" #'flymake-show-diagnostics-buffer
-        :desc "Flycheck next error"     "n" #'flycheck-next-error
-        :desc "Flycheck previous error" "p" #'flycheck-previous-error
-        :desc "Flycheck explain error"  "e" #'flycheck-explain-error-at-point
-        :desc "Flycheck list errors"    "l" #'flycheck-list-errors
-        :desc "Flycheck verify setup"   "v" #'flycheck-verify-setup)
+       :desc "Flymake next error"      "N" #'flymake-goto-next-error
+       :desc "Flymake previous error"  "P" #'flymake-goto-prev-error
+       :desc "Flymake list errors"     "L" #'flymake-show-diagnostics-buffer
+       :desc "Flycheck next error"     "n" #'flycheck-next-error
+       :desc "Flycheck previous error" "p" #'flycheck-previous-error
+       :desc "Flycheck explain error"  "e" #'flycheck-explain-error-at-point
+       :desc "Flycheck list errors"    "l" #'flycheck-list-errors
+       :desc "Flycheck verify setup"   "v" #'flycheck-verify-setup)
       (:prefix "o"                      ; open
-        :desc "Kill ring"             "k" #'helm-show-kill-ring
-        :desc "Lsp ui imenu"          "i" #'lsp-ui-imenu
-        :desc "Open link"             "x" #'link-hint-open-link
-        :desc "Open link at point"    "X" #'link-hint-open-link-at-point
-        :desc "Vterm"                 "s" #'+vterm/toggle
-        :desc "Project run Vterm"     "S" #'+vterm/here
-        :desc "Toggle eshell popup"   "e" #'+eshell/toggle
-        :desc "Project run Eshell"    "E" #'projectile-run-eshell
-        :desc "Ibuffer"               "I" #'ibuffer
-        :desc "Youdao dictionary"     "y" #'youdao-dictionary-search-at-point-tooltip
-        :desc "Youdao play voice"     "Y" #'youdao-dictionary-play-voice-at-point
-        :desc "Debugger start"        "d" #'+debugger:start
-        :desc "Docker open apps"      ";" #'+docker/reveal-in-apps
-        (:when IS-MAC
-          :desc "Reveal in default program"  "f" #'+macos/open-in-default-program
-          :desc "Reveal in Finder"           "o" #'+macos/reveal-in-finder
-          :desc "Reveal project in Finder"   "O" #'+macos/reveal-project-in-finder
-          :desc "Reveal in terminal"         "t" #'+macos/reveal-in-terminal
-          :desc "Reveal project in terminal" "T" #'+macos/reveal-project-in-terminal
-          :desc "Reveal file in Apps"        "," #'+shell/reveal-in-apps
-          :desc "Reveal project in Apps"     "." #'+shell/reveal-project-in-apps)
-        (:when IS-LINUX
-          :desc "Reveal in default program"  "f" #'+shell/open-in-default-program
-          :desc "Reveal in Finder"           "o" #'+shell/reveal-in-finder
-          :desc "Reveal project in Finder"   "O" #'+shell/reveal-project-in-finder
-          :desc "Reveal in Terminal"         "t" #'+shell/reveal-in-terminal
-          :desc "Reveal project in Terminal" "T" #'+shell/reveal-project-in-terminal
-          :desc "Reveal file in Apps"        "," #'+shell/reveal-in-apps
-          :desc "Reveal project in Apps"     "." #'+shell/reveal-project-in-apps))
+       :desc "Kill ring"             "k" #'helm-show-kill-ring
+       :desc "Lsp ui imenu"          "i" #'lsp-ui-imenu
+       :desc "Open link"             "x" #'link-hint-open-link
+       :desc "Open link at point"    "X" #'link-hint-open-link-at-point
+       :desc "Vterm"                 "s" #'+vterm/toggle
+       :desc "Project run Vterm"     "S" #'+vterm/here
+       :desc "Toggle eshell popup"   "e" #'+eshell/toggle
+       :desc "Project run Eshell"    "E" #'projectile-run-eshell
+       :desc "Ibuffer"               "I" #'ibuffer
+       :desc "Youdao dictionary"     "y" #'youdao-dictionary-search-at-point-tooltip
+       :desc "Youdao play voice"     "Y" #'youdao-dictionary-play-voice-at-point
+       :desc "Debugger start"        "d" #'+debugger:start
+       :desc "Docker open apps"      ";" #'+docker/reveal-in-apps
+       (:when IS-MAC
+        :desc "Reveal in default program"  "f" #'+macos/open-in-default-program
+        :desc "Reveal in Finder"           "o" #'+macos/reveal-in-finder
+        :desc "Reveal project in Finder"   "O" #'+macos/reveal-project-in-finder
+        :desc "Reveal in terminal"         "t" #'+macos/reveal-in-terminal
+        :desc "Reveal project in terminal" "T" #'+macos/reveal-project-in-terminal
+        :desc "Reveal file in Apps"        "," #'+shell/reveal-in-apps
+        :desc "Reveal project in Apps"     "." #'+shell/reveal-project-in-apps)
+       (:when IS-LINUX
+        :desc "Reveal in default program"  "f" #'+shell/open-in-default-program
+        :desc "Reveal in Finder"           "o" #'+shell/reveal-in-finder
+        :desc "Reveal project in Finder"   "O" #'+shell/reveal-project-in-finder
+        :desc "Reveal in Terminal"         "t" #'+shell/reveal-in-terminal
+        :desc "Reveal project in Terminal" "T" #'+shell/reveal-project-in-terminal
+        :desc "Reveal file in Apps"        "," #'+shell/reveal-in-apps
+        :desc "Reveal project in Apps"     "." #'+shell/reveal-project-in-apps))
       (:prefix "i"                      ; insert
-        "v" #'add-dir-local-variable
-        "o" #'symbol-overlay-put
-        "q" #'symbol-overlay-remove-all)
+       "v" #'add-dir-local-variable
+       "o" #'symbol-overlay-put
+       "q" #'symbol-overlay-remove-all)
       (:prefix "p"                      ; project
-        "*" (+my/prefix-M-x "projectile-")
-        :desc "Find projectile file" "f" #'open-file-with-projectile-or-counsel-git
-        :desc "Update projectile list" "u" #'update-projectile-known-projects)
+       "*" (+my/prefix-M-x "projectile-")
+       :desc "Find projectile file" "f" #'open-file-with-projectile-or-counsel-git
+       :desc "Update projectile list" "u" #'update-projectile-known-projects)
       (:prefix "t"                      ; toggle
-        "c" #'centered-window-mode
-        "r" #'rjsx-mode
-        "d" #'toggle-debug-on-error
-        "D" #'+my/realtime-elisp-doc
-        "L" #'toggle-truncate-lines
-        "S" #'size-indication-mode
-        "I" #'ivy-rich-mode
-        "v" #'visual-line-mode)
+       "c" #'centered-window-mode
+       "r" #'rjsx-mode
+       "d" #'toggle-debug-on-error
+       "D" #'+my/realtime-elisp-doc
+       "L" #'toggle-truncate-lines
+       "S" #'size-indication-mode
+       "I" #'ivy-rich-mode
+       "v" #'visual-line-mode)
       (:prefix-map ("j" . "jump")
-        "j" #'avy-goto-char-timer
-        "l" #'avy-goto-line
-        "b" #'avy-pop-mark)
+       "j" #'avy-goto-char-timer
+       "l" #'avy-goto-line
+       "b" #'avy-pop-mark)
       (:prefix "s"                      ; snippet
-        ;; "d" #'+ivy:rg-from-cwd
-        "t" #'yas-describe-tables)
+       ;; "d" #'+ivy:rg-from-cwd
+       "t" #'yas-describe-tables)
       (:prefix "s"                      ; search
-        :desc "Project"   "p" #'+ivy/project-search
-        :desc "Project (hidden)" "h" #'+ivy/project-search-with-hidden-files
-        :desc "Comments"  "c" #'counsel-imenu-comments)
+       :desc "Project"   "p" #'+ivy/project-search
+       :desc "Project (hidden)" "h" #'+ivy/project-search-with-hidden-files
+       :desc "Comments"  "c" #'counsel-imenu-comments)
       (:prefix "b"
-        :desc "IBuffer" "i" #'ibuffer
-        )
+       :desc "IBuffer" "i" #'ibuffer
+       )
       (:prefix "w"
-        :desc "Split window right" "/"  #'split-window-right
-        )
+       :desc "Split window right" "/"  #'split-window-right
+       )
       (:prefix "m"
-        :desc "jump to defination" "gg" #'xref-find-definitions
-        :desc "jump to defination" "gG" #'xref-find-definitions-other-window
-        :desc "jump to defination" "gr" #'xref-find-references
-        :desc "jump to dash doc" "gd" #'dash-at-point
-        )
+       :desc "jump to defination" "gg" #'xref-find-definitions
+       :desc "jump to defination" "gG" #'xref-find-definitions-other-window
+       :desc "jump to defination" "gr" #'xref-find-references
+       :desc "jump to dash doc" "gd" #'dash-at-point
+       )
       (:prefix "j"
-        :desc "Imenu" "i" #'counsel-imenu
-        )
+       :desc "Imenu" "i" #'counsel-imenu
+       )
       )
 
 (map!
  (:after ranger
-   (:map ranger-normal-mode-map
-     "M-1" nil
-     "M-2" nil
-     "M-3" nil
-     "M-4" nil
-     "M-5" nil
-     "M-6" nil
-     "M-7" nil
-     "M-8" nil
-     "M-9" nil
-     "M-0" nil
-     "g" nil
-     "q" #'ranger-close-and-kill-inactive-buffers
-     "f" #'counsel-find-file
-     "F" #'dired-narrow                 ; use `; g` to quit dired-narrow
-     "M-g" #'ranger-go
-     "C-TAB" #'ranger-next-tab
-     "C-S-TAB" #'ranger-prev-tab
-     "U" #'dired-unmark-all-files
-     "u" #'dired-unmark
-     "(" #'dired-hide-details-mode
-     "c" #'dired-copy-file
-     "E" #'dired-toggle-read-only
-     "C-k" #'ranger-up-directory
-     "0" #'dired-back-to-start-of-files
-     "+" #'dired-create-directory))
+  (:map ranger-normal-mode-map
+   "M-1" nil
+   "M-2" nil
+   "M-3" nil
+   "M-4" nil
+   "M-5" nil
+   "M-6" nil
+   "M-7" nil
+   "M-8" nil
+   "M-9" nil
+   "M-0" nil
+   "g" nil
+   "q" #'ranger-close-and-kill-inactive-buffers
+   "f" #'counsel-find-file
+   "F" #'dired-narrow                 ; use `; g` to quit dired-narrow
+   "M-g" #'ranger-go
+   "C-TAB" #'ranger-next-tab
+   "C-S-TAB" #'ranger-prev-tab
+   "U" #'dired-unmark-all-files
+   "u" #'dired-unmark
+   "(" #'dired-hide-details-mode
+   "c" #'dired-copy-file
+   "E" #'dired-toggle-read-only
+   "C-k" #'ranger-up-directory
+   "0" #'dired-back-to-start-of-files
+   "+" #'dired-create-directory))
  (:after lispy
-   (:map lispy-mode-map
-     :i "_" #'special-lispy-different
-     :i [remap kill-line] #'lispy-kill
-     :i [remap delete-backward-char] #'lispy-delete-backward
-     :n "M-<left>" #'lispy-forward-barf-sexp
-     :n "M-<right>" #'lispy-forward-slurp-sexp
-     :n "C-M-<left>" #'lispy-backward-slurp-sexp
-     :n "C-M-<right>" #'lispy-backward-barf-sexp))
+  (:map lispy-mode-map
+   :i "_" #'special-lispy-different
+   :i [remap kill-line] #'lispy-kill
+   :i [remap delete-backward-char] #'lispy-delete-backward
+   :n "M-<left>" #'lispy-forward-barf-sexp
+   :n "M-<right>" #'lispy-forward-slurp-sexp
+   :n "C-M-<left>" #'lispy-backward-slurp-sexp
+   :n "C-M-<right>" #'lispy-backward-barf-sexp))
  (:after lispyville
-   (:map lispyville-mode-map
-     :n "M-r"   nil
-     :n "M-s"   nil
-     :n "M-v"   nil
-     :n "C-M-r" #'lispy-raise-sexp
-     :n "C-M-s" #'lispy-splice
-     :n "M-V"   #'lispy-convolute-sexp
-     :n "TAB" #'lispyville-prettify))
+  (:map lispyville-mode-map
+   :n "M-r"   nil
+   :n "M-s"   nil
+   :n "M-v"   nil
+   :n "C-M-r" #'lispy-raise-sexp
+   :n "C-M-s" #'lispy-splice
+   :n "M-V"   #'lispy-convolute-sexp
+   :n "TAB" #'lispyville-prettify))
  (:after elisp-mode
-   :map emacs-lisp-mode-map
-   :n "gh" #'helpful-at-point)
+  :map emacs-lisp-mode-map
+  :n "gh" #'helpful-at-point)
  (:after lsp-ui
-   :map lsp-ui-mode-map
-   "C-j" #'toggle-lsp-ui-doc
-   :localleader
-   "r" #'lsp-rename)
+  :map lsp-ui-mode-map
+  "C-j" #'toggle-lsp-ui-doc
+  :localleader
+  "r" #'lsp-rename)
  (:after lsp-ui-peek
-   :map lsp-ui-peek-mode-map
-   "h" #'lsp-ui-peek--select-prev-file
-   "j" #'lsp-ui-peek--select-next
-   "k" #'lsp-ui-peek--select-prev
-   "l" #'lsp-ui-peek--select-next-file)
+  :map lsp-ui-peek-mode-map
+  "h" #'lsp-ui-peek--select-prev-file
+  "j" #'lsp-ui-peek--select-next
+  "k" #'lsp-ui-peek--select-prev
+  "l" #'lsp-ui-peek--select-next-file)
  (:after python
-   :localleader
-   :map python-mode-map
-   (:prefix ("i" . "Import")
-     :desc "Import at point" "i" #'importmagic-fix-symbol-at-point
-     :desc "Import all"      "a" #'importmagic-fix-imports
-     :desc "Sort imports"    "s" #'+python/python-sort-imports)
-   (:prefix ("v" . "ENV")
-     "c" #'conda-env-activate
-     "C" #'conda-env-deactivate
-     "w" #'pyvenv-workon
-     "v" #'pyvenv-activate
-     "V" #'pyvenv-deactivate
-     "p" #'pipenv-activate
-     "P" #'pipenv-deactivate))
+  :localleader
+  :map python-mode-map
+  (:prefix ("i" . "Import")
+   :desc "Import at point" "i" #'importmagic-fix-symbol-at-point
+   :desc "Import all"      "a" #'importmagic-fix-imports
+   :desc "Sort imports"    "s" #'+python/python-sort-imports)
+  (:prefix ("v" . "ENV")
+   "c" #'conda-env-activate
+   "C" #'conda-env-deactivate
+   "w" #'pyvenv-workon
+   "v" #'pyvenv-activate
+   "V" #'pyvenv-deactivate
+   "p" #'pipenv-activate
+   "P" #'pipenv-deactivate))
  (:after pyenv-mode
-   (:map pyenv-mode-map
-     "C-c C-s" nil
-     "C-c C-u" nil))
+  (:map pyenv-mode-map
+   "C-c C-s" nil
+   "C-c C-u" nil))
  (:after js2-mode
-   (:map js2-mode-map
-     :localleader
-     :desc "Import js"  "i" 'import-js-import
-     :desc "Import all" "f" 'import-js-fix))
+  (:map js2-mode-map
+   :localleader
+   :desc "Import js"  "i" 'import-js-import
+   :desc "Import all" "f" 'import-js-fix))
  (:after rjsx-mode
-   (:map rjsx-mode-map
-     :localleader
-     :desc "Import js"  "i" 'import-js-import
-     :desc "Import all" "f" 'import-js-fix))
+  (:map rjsx-mode-map
+   :localleader
+   :desc "Import js"  "i" 'import-js-import
+   :desc "Import all" "f" 'import-js-fix))
  (:after tide
-   :map tide-references-mode-map
-   "C-k" 'tide-find-previous-reference
-   "p" 'tide-find-previous-reference
-   "C-j" 'tide-find-next-reference
-   "n" 'tide-find-next-reference
-   "C-l" 'tide-goto-reference)
+  :map tide-references-mode-map
+  "C-k" 'tide-find-previous-reference
+  "p" 'tide-find-previous-reference
+  "C-j" 'tide-find-next-reference
+  "n" 'tide-find-next-reference
+  "C-l" 'tide-goto-reference)
  (:after org
-   (:map org-mode-map
-     "M-t" #'org-todo
-     :localleader
-     "s" #'org-schedule
-     "w" #'org-refile
-     "z" #'org-add-note
-     "L" #'org-toggle-link-display
-     "a" nil
-     (:prefix ("a" . "Archive")
-       :desc "Org default archive as DONE" "a" (λ! (org-todo "DONE") (org-archive-subtree-default))
-       :desc "Org archive as DONE"         "s" (λ! (org-todo "DONE") (org-archive-subtree)))
-     "A" #'org-attach))
+  (:map org-mode-map
+   "M-t" #'org-todo
+   :localleader
+   "s" #'org-schedule
+   "w" #'org-refile
+   "z" #'org-add-note
+   "L" #'org-toggle-link-display
+   "a" nil
+   (:prefix ("a" . "Archive")
+    :desc "Org default archive as DONE" "a" (λ! (org-todo "DONE") (org-archive-subtree-default))
+    :desc "Org archive as DONE"         "s" (λ! (org-todo "DONE") (org-archive-subtree)))
+   "A" #'org-attach))
  (:after evil-vars
-   (:map evil-window-map
-     :leader
-     (:prefix "w"
-       :desc "evil-window-decrease-height" "-" (λ! (evil-window-decrease-height 10))
-       :desc "evil-window-increase-height" "+" (λ! (evil-window-increase-height 10))
-       :desc "evil-window-decrease-width" "<" (λ! (evil-window-decrease-width 20))
-       :desc "evil-window-increase-width" ">" (λ! (evil-window-increase-width 20)))))
+  (:map evil-window-map
+   :leader
+   (:prefix "w"
+    :desc "evil-window-decrease-height" "-" (λ! (evil-window-decrease-height 10))
+    :desc "evil-window-increase-height" "+" (λ! (evil-window-increase-height 10))
+    :desc "evil-window-decrease-width" "<" (λ! (evil-window-decrease-width 20))
+    :desc "evil-window-increase-width" ">" (λ! (evil-window-increase-width 20)))))
  (:after evil-org
-   (:map evil-org-mode-map
-     :i "C-d" nil
-     :i "C-t" nil
-     :i "C-h" nil
-     :i "C-k" nil))
+  (:map evil-org-mode-map
+   :i "C-d" nil
+   :i "C-t" nil
+   :i "C-h" nil
+   :i "C-k" nil))
  (:after markdown-mode
-   (:map markdown-mode-map
-     :desc "Markdown Cycle" :nv [tab] #'markdown-cycle
-     :desc "Insert item below" :ni "<C-return>"   (λ! (+org/insert-item-below 1))
-     :desc "Insert item above" :ni "<S-C-return>" (λ! (+org/insert-item-above 1))
-     (:localleader
-       (:when IS-MAC
-         :desc "Reveal in Typora" "o" #'+macos/reveal-in-typora)
-       (:when IS-LINUX
-         :desc "Reveal in Typora" "o" #'+shell/reveal-in-typora)
-       :desc "Fix Copy"           "F" #'+my/markdown-copy-fix
-       :desc "Grip mode"          "g" #'grip-mode
-       :desc "Insert header line" "-" #'org-table-insert-hline
-       :desc "Crete Table from region" "|" #'org-table-create-or-convert-from-region
-       :desc "Edit" "x" (+my/simulate-key "C-c C-s")
-       (:prefix ("i" . "Insert")
-         "r" #'markdown-table-insert-row
-         "c" #'markdown-table-insert-column))))
+  (:map markdown-mode-map
+   :desc "Markdown Cycle" :nv [tab] #'markdown-cycle
+   :desc "Insert item below" :ni "<C-return>"   (λ! (+org/insert-item-below 1))
+   :desc "Insert item above" :ni "<S-C-return>" (λ! (+org/insert-item-above 1))
+   (:localleader
+    (:when IS-MAC
+     :desc "Reveal in Typora" "o" #'+macos/reveal-in-typora)
+    (:when IS-LINUX
+     :desc "Reveal in Typora" "o" #'+shell/reveal-in-typora)
+    :desc "Fix Copy"           "F" #'+my/markdown-copy-fix
+    :desc "Grip mode"          "g" #'grip-mode
+    :desc "Insert header line" "-" #'org-table-insert-hline
+    :desc "Crete Table from region" "|" #'org-table-create-or-convert-from-region
+    :desc "Edit" "x" (+my/simulate-key "C-c C-s")
+    (:prefix ("i" . "Insert")
+     "r" #'markdown-table-insert-row
+     "c" #'markdown-table-insert-column))))
  (:after grep
-   :map grep-mode-map
-   "SPC" nil)
+  :map grep-mode-map
+  "SPC" nil)
  (:after wgrep
-   :map wgrep-mode-map
-   :n "RET" #'ivy-occur-press-and-switch)
+  :map wgrep-mode-map
+  :n "RET" #'ivy-occur-press-and-switch)
  (:after ivy
-   :map ivy-occur-grep-mode-map
-   "C-d" nil
-   "SPC" nil
-   "DEL" #'ivy-occur-delete-candidate
-   :map ivy-minibuffer-map
-   "TAB" #'ivy-partial-or-done
-   "<C-return>" #'ivy-immediate-done
-   "C-b" nil
-   "C-j" #'ivy-call-and-recenter
-   "C-;" #'ivy-avy
-   "C-k" #'ivy-kill-line
-   "C-v" #'ivy-scroll-up-command
-   "A-v" #'ivy-scroll-down-command
-   "M-v" #'yank)
+  :map ivy-occur-grep-mode-map
+  "C-d" nil
+  "SPC" nil
+  "DEL" #'ivy-occur-delete-candidate
+  :map ivy-minibuffer-map
+  "TAB" #'ivy-partial-or-done
+  "<C-return>" #'ivy-immediate-done
+  "C-b" nil
+  "C-j" #'ivy-call-and-recenter
+  "C-;" #'ivy-avy
+  "C-k" #'ivy-kill-line
+  "C-v" #'ivy-scroll-up-command
+  "A-v" #'ivy-scroll-down-command
+  "M-v" #'yank)
  (:after minibuffer
-   :map minibuffer-local-map
-   "C-k" 'kill-line)
+  :map minibuffer-local-map
+  "C-k" 'kill-line)
  (:after magit-mode
-   (:map magit-mode-map
-     "M-p" nil
-     "M-n" nil
-     "M-w" nil))
+  (:map magit-mode-map
+   "M-p" nil
+   "M-n" nil
+   "M-w" nil))
  (:after magit-diff
-   (:map magit-diff-mode-map            ; for magit diff/rev mode
-     "C-o" #'magit-diff-visit-file-other-window))
+  (:map magit-diff-mode-map            ; for magit diff/rev mode
+   "C-o" #'magit-diff-visit-file-other-window))
  (:after magit-blame
-   (:map magit-blame-mode-map
-     :n "o" #'magit-blame--git-link-commit))
+  (:map magit-blame-mode-map
+   :n "o" #'magit-blame--git-link-commit))
  (:after git-rebase
-   (:map git-rebase-mode-map
-     "M-j" #'git-rebase-move-line-down
-     "M-k" #'git-rebase-move-line-up
-     "SPC" nil))
+  (:map git-rebase-mode-map
+   "M-j" #'git-rebase-move-line-down
+   "M-k" #'git-rebase-move-line-up
+   "SPC" nil))
  (:after evil-vars
-   :map evil-ex-completion-map
-   "C-b" nil
-   "C-k" #'kill-line
-   "C-d" #'delete-forward-char)
+  :map evil-ex-completion-map
+  "C-b" nil
+  "C-k" #'kill-line
+  "C-d" #'delete-forward-char)
  (:after evil-collection-info
-   :map Info-mode-map
-   "/" #'Info-search
-   "?" #'Info-search-backward)
+  :map Info-mode-map
+  "/" #'Info-search
+  "?" #'Info-search-backward)
  (:after company
-   (:map company-active-map
-     "TAB"   nil
-     ;; Don't interfere with `evil-delete-backward-word' in insert mode
-     "C-v"   #'company-next-page
-     "A-v"   #'company-previous-page
-     "C-j"   #'company-show-location
-     "C-i"   #'company-complete-selection))
+  (:map company-active-map
+   "TAB"   nil
+   ;; Don't interfere with `evil-delete-backward-word' in insert mode
+   "C-v"   #'company-next-page
+   "A-v"   #'company-previous-page
+   "C-j"   #'company-show-location
+   "C-i"   #'company-complete-selection))
  ;; (:after vterm
-   ;; (:map vterm-mode-map
-     ;; "M-e" nil)
-     ;; "M-w" #'+workspace/close-window-or-workspace))
+ ;; (:map vterm-mode-map
+ ;; "M-e" nil)
+ ;; "M-w" #'+workspace/close-window-or-workspace))
  (:after term
-   (:map term-raw-map
-     :i "M-v" #'term-paste)))
+  (:map term-raw-map
+   :i "M-v" #'term-paste)))

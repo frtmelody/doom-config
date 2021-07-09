@@ -10,20 +10,16 @@
 
 
 (setq lsp-java-jdt-download-url  "https://download.eclipse.org/jdtls/milestones/0.57.0/jdt-language-server-0.57.0-202006172108.tar.gz")
-;; (use-package! company-tabnine
-;;   :init (add-to-list 'company-backends #'company-tabnine)
-;;   ;; (require 'company-tabnine)
-;;   )
 
 (add-hook 'prog-mode-hook 'linum-mode)
 
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
- ;; FLYCHECK
+;; FLYCHECK
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
- (defvar cspell-base-program (executable-find "cspell"))
+(defvar cspell-base-program (executable-find "cspell"))
 (defvar cspell-config-file-path (concat "'" (expand-file-name  "~/Dotfiles/cspell.json") "'"))
 (defvar cspell-args (string-join `("--config" ,cspell-config-file-path) " "))
 (defun cspell-check-buffer ()
@@ -95,11 +91,6 @@
 ;; CC
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(use-package! bazel-mode
-  :defer t
-  :init
-  (add-to-list 'auto-mode-alist '("BUILD\\(\\.bazel\\)?\\'" . bazel-mode))
-  (add-to-list 'auto-mode-alist '("WORKSPACE\\'" . bazel-mode)) )
 
 (add-to-list 'auto-mode-alist '("\\.inl\\'" . +cc-c-c++-objc-mode))
 (add-to-list 'auto-mode-alist '("\\.inc\\'" . +cc-c-c++-objc-mode))
@@ -300,6 +291,10 @@
                    "%e %a"))
       (:remove  . ("%e")))
     :default "c++"))
+
+
+(after! rustic
+  (setq rustic-lsp-server 'rust-analyzer))
 
 
 (defun go-packages-find ()

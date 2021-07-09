@@ -7,6 +7,7 @@
             ((executable-find "/opt/google/chrome/chrome") "/opt/google/chrome/chrome")
             ((executable-find "google-chrome") "google-chrome")))
 
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; SSH
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -45,7 +46,7 @@
   (setq avy-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l ?q ?w ?e ?r ?u ?i ?o ?p)))
 
 (after! yasnippet
-    (add-to-list 'hippie-expand-try-functions-list 'yas-hippie-try-expand)
+  (add-to-list 'hippie-expand-try-functions-list 'yas-hippie-try-expand)
   )
 
 (after! nav-flash
@@ -266,8 +267,8 @@
   (add-hook! 'term-mode-hook (setq-local imenu-generic-expression '(("Prompt" "➜\\(.*\\)" 1)))))
 
 
-(use-package! vterm-toggle
-  :defer t)
+;;(use-package! vterm-toggle
+;; :defer t)
 
 
 (setq chinese-input-on nil)
@@ -282,11 +283,11 @@
       (fcitx-activate-proc)))
   ;; 开启或关闭中文输入法
   (defun chinese-input-enable () (interactive)
-      (setq chinese-input-on t)
-      (when (eq evil-state 'insert)
-        (fcitx-activate-proc)
-        )
-  )
+         (setq chinese-input-on t)
+         (when (eq evil-state 'insert)
+           (fcitx-activate-proc)
+           )
+         )
   (defun chinese-input-disable () (interactive) (setq chinese-input-on nil))
   ;; 退出insert mode切换第一输入法（英文）
   (add-hook 'evil-insert-state-exit-hook
@@ -295,6 +296,4 @@
   (add-hook 'evil-insert-state-entry-hook
             (lambda () (use-chinese-input)))
   (advice-add 'evil-force-normal-state :after#'fcitx-deactivate-proc)
- )
-
-
+  )

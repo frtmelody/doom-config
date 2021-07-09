@@ -21,12 +21,13 @@
 (package! wucuo)
 (package! grip-mode)
 (package! org-wild-notifier)
-(package! vterm-toggle :recipe (:host github :repo "jixiuf/vterm-toggle"))
+(package! copy-as-format)
+(package! ox-jira)
+;; (package! vterm-toggle :recipe (:host github :repo "jixiuf/vterm-toggle"))
 (package! counsel-etags)
 (package! ibuffer-projectile)
 ;; 
 ;; programming
-(package! bazel-mode :recipe (:host github :repo "bazelbuild/emacs-bazel-mode"))
 (package! import-js)
 (package! company-tabnine)
 (package! indium)
@@ -35,7 +36,7 @@
 (package! flycheck-mypy)
 (package! dash-at-point)
 (package! flycheck-google-cpplint :recipe (:host github :repo "flycheck/flycheck-google-cpplint"))
-(package! ox-confluence-en :recipe (:host github :repo "frtmelody/ox-confluence-en"))
+(package! ox-confluence-en :recipe (:host github :repo "correl/ox-confluence-en"))
 ;;(package! git-link)
 
 ;;os

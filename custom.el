@@ -46,6 +46,8 @@
      ("visualstudio\\|azure" git-link-azure)))
  '(go-packages-function 'go-packages-find)
  '(gofmt-command "goimports")
+ '(ns-alternate-modifier 'meta)
+ ; '(comp-deferred-compilation t)
  '(org-agenda-files
    '("/Users/melody/org-notes/gtd.org" "/Users/melody/org-notes/inbox.org" "/Users/melody/org-notes/journal.org" "/Users/melody/org-notes/notes.org" "/Users/melody/org-notes/snippet.org" "/Users/melody/org-notes/todo.org"))
  '(projectile-auto-update-cache t)
