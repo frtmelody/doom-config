@@ -47,13 +47,13 @@
  '(go-packages-function 'go-packages-find)
  '(gofmt-command "goimports")
  '(ns-alternate-modifier 'meta)
- ; '(comp-deferred-compilation t)
  '(org-agenda-files
    '("/Users/melody/org-notes/gtd.org" "/Users/melody/org-notes/inbox.org" "/Users/melody/org-notes/journal.org" "/Users/melody/org-notes/notes.org" "/Users/melody/org-notes/snippet.org" "/Users/melody/org-notes/todo.org"))
  '(projectile-auto-update-cache t)
  '(projectile-find-dir-includes-top-level t)
  '(projectile-globally-ignored-files '(".DS_Store" "Icon" "TAGS" "class" "log"))
- '(wakatime-api-key "a7457a6f-34ca-493d-b7dc-5f1e59c90cb8"))
+ '(wakatime-api-key "a7457a6f-34ca-493d-b7dc-5f1e59c90cb8")
+ '(warning-suppress-types '((after-save-hook))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

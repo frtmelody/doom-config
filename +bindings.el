@@ -401,18 +401,6 @@
   :map Info-mode-map
   "/" #'Info-search
   "?" #'Info-search-backward)
- (:after company
-  (:map company-active-map
-   "TAB"   nil
-   ;; Don't interfere with `evil-delete-backward-word' in insert mode
-   "C-v"   #'company-next-page
-   "A-v"   #'company-previous-page
-   "C-j"   #'company-show-location
-   "C-i"   #'company-complete-selection))
- ;; (:after vterm
- ;; (:map vterm-mode-map
- ;; "M-e" nil)
- ;; "M-w" #'+workspace/close-window-or-workspace))
  (:after term
   (:map term-raw-map
    :i "M-v" #'term-paste)))

@@ -29,7 +29,6 @@
 ;; 
 ;; programming
 (package! import-js)
-(package! company-tabnine)
 (package! indium)
 (package! importmagic)
 (package! py-isort)
